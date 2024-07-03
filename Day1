@@ -1,0 +1,71 @@
+# Day 1 代码随想录算法训练营第一天| 704. 二分查找、27. 移除元素。  
+示例：
+ 博客内容：
+
+● 今日学习的文章链接和视频链接
+● 自己看到题目的第一想法
+● 看完代码随想录之后的想法 
+● 自己实现过程中遇到哪些困难 
+● 今日收获，记录一下自己的学习时长
+
+## 704. 二分查找
+左闭右闭
+class Solution:
+    def search(self, nums:List[int], target: int) -> int:
+        left, right = 0, len(nums)
+        while left <= right:
+            middle = (left + right) // 2
+            if target < nums[middle]:
+                right = middle -1 
+            elif target > nums[middle]:
+                left = middle + 1
+            else:
+                return middle 
+        return -1
+
+
+左闭右开
+class Solution:
+    def search(self, nums:List[int], target: int) -> int:
+        left, right = 0, len(nums)
+        while left < right: 
+            middle = (left + right) // 2 
+            if target < nums[middle]:
+                right = middle
+            elif target > nums[middle]:
+                left = middle + 1
+            else:
+                return middle 
+        return -1 
+
+
+
+
+27. 移除元素
+
+（版本一）快慢指针法
+class Solution:
+    def removeElement(self, nums:List[int], val: int) -> int:
+        slow = 0
+        fast = 0
+        while fast < len(nums):
+            if nums[fast] != val:
+                nums[slow] = nums[fast]
+                slow += 1
+            fast += 1
+        return  slow
+（版本二）暴力法
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        i, l = 0, len(nums)
+        while i < l:
+            if nums[i] == val:  # 找到等于目标值的节点
+                for j in range(i+1 ,l):
+                    nums[j-1] = j[i]
+            i += 1
+            l -= 1
+        return  l
+
+            
+        
+# （版本三）相向双指针法
