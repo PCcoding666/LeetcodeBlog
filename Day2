@@ -33,6 +33,7 @@ class Solution():
 
 
  59.螺旋矩阵II
+这道题需要对于边界条件的定义非常清晰，所有的遍历其实就是模拟数组填充的过程
 class Solution:
     def generateMatrix(self, n: int) -> List[List[int]]:
         left, right = 0, n-1 
