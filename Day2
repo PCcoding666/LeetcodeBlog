@@ -1,0 +1,38 @@
+Day 2
+
+977.有序数组的平方
+
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        left, right = 0, len(nums) - 1
+        new_list = []
+        while left <= right: 
+            if nums[left] ** 2 <= nums[right] ** 2:
+                new_list.append(nums[right] ** 2)
+                right -= 1
+            elif nums[left] ** 2 > nums[right] ** 2:
+                new_list.append(nums[left] ** 2)
+                left += 1
+        return new_list[::-1]
+
+
+209.长度最小的子数组
+class Solution():
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        left = 0
+        result = len(nums) + 1   # 使用数组长度+1初始化 result，确保未找到子数组时 result 大于任何可能的子数组长度
+        sum = 0 
+        for right in range(len(nums)):
+            sum += nums[right]
+            while sum >= target:
+                result = min(result, right - left + 1)
+                sum -= nums[left]
+                left += 1
+         # 如果 result 没有被更新，说明没有找到符合条件的子数组，返回 0
+        return result if result < len(nums)  else 0
+
+
+ 59.螺旋矩阵II
+
+
+
