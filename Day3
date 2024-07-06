@@ -45,3 +45,13 @@ class Solution:
 
 （版本二）递归法
 
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        return self.reverse(head, None )
+
+    def reverse(current, pre):
+        if current == None:
+            return pre
+        temp_cur = current.next 
+        current.next = pre
+        return self.reverse(pre, current)
