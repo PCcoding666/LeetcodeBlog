@@ -7,4 +7,41 @@
 Class Solution:
     def removeElemnt(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
         dummy_head = ListNode(next = head)
+        current = dummy_head
+        while current.next:
+            if current.next.val == val:
+                current.next = current.next.next
+            else:
+                current = current.next
+        return dummy_head.next
+
+
+707. Design Linked List
+（版本一）单链表法
+在链表的增删改操作的时候，第一步应该做的事情应该是去定义一个指针
+在插入一个新的节点的时候首先应该想到的是定义一个新的阶段
+
+
+
+
+206.反转链表 
+（版本一）双指针法
+在遍历的过程中，定义了pre，temp_cur. 
+想清楚是先更新pre = current，还是先更新current = tem_cur?
+
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        pre = None    #这里的pre指向空等同于初始链表中的最后一个节点指向None
+        current = head
+        while current:    #current指向尾节点的时候就跳出循环(current指向尾节点后的None空没有意义)
+            tem_cur = current.next
+            current.next = pre
+            pre = current 
+            current = tem_cur
+        return pre
         
+
+
+
+（版本二）递归法
+
