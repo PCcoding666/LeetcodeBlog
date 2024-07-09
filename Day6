@@ -16,3 +16,14 @@ for i in range(len(nums1)):
     索引循环：i 是索引，遍历的是数字索引（从 0 到 len(nums1)-1）。
 
 正确写法参考英文版leetcode, 两种遍历都写了一次
+
+
+383. Ransom Note
+
+注意判断条件 if i not in record or record[i] == 0:
+
+
+
+15. 3Sum
+双指针
+注意去重的条件，以及去重的逻辑需要放在输出结果的下面
