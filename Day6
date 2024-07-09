@@ -11,3 +11,5 @@ for i in nums3:
     直接元素循环：i 是数组中的元素，直接遍历数组 nums3 中的元素。
 for i in range(len(nums1)):
     索引循环：i 是索引，遍历的是数字索引（从 0 到 len(nums1)-1）。
+
+正确写法参考英文版leetcode, 两种遍历都写了一次
