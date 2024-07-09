@@ -1,4 +1,7 @@
  454.四数相加II 
+
+这道题的思路就是先算a+b的值，然后这个值作为字典的键，字典的值作为这个a+b的值出现的次数，然后再在c+d中查询
+
 错误代码示例:
         for i in range(len(nums1)):
             for j in range(len(nums2)):
