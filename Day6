@@ -1,0 +1,13 @@
+ 454.四数相加II 
+错误代码示例:
+        for i in range(len(nums1)):
+            for j in range(len(nums2)):
+                if i+j not in a_b_sum_dict:
+                    a_b_sum_dict[i+j] = 1 
+                else:
+                    a_b_sum_dict[i+j] += 1
+注意两种写法的不同点
+for i in nums3:
+    直接元素循环：i 是数组中的元素，直接遍历数组 nums3 中的元素。
+for i in range(len(nums1)):
+    索引循环：i 是索引，遍历的是数字索引（从 0 到 len(nums1)-1）。
