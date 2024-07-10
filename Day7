@@ -1,0 +1,28 @@
+344.反转字符串
+双指针法
+s[left], s[right] = s[right], s[left]
+
+
+541. Reverse String II
+这一道题可以用切片来写,不过仍然是指针的思想
+
+
+数组的方法：
+.isdigit()
+
+将列表中的元素连接成一个字符串
+return ''.join(result)
+
+
+
+class Solution:
+    def change(self, s: str) -> str:
+        result = []
+        for char in s:
+            if char.isdigit():
+                result.append("number")
+            else:
+                result.append(char)
+        return ''.join(result)
+
+
