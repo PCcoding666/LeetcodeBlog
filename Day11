@@ -1,0 +1,55 @@
+150. 逆波兰表达式求值
+
+from operator import add, sub, mul
+因为这道题涉及的是栈的应用，思路的核心是
+
+239. 滑动窗口最大值
+
+这道题如果使用暴力法的话，时间复杂度应该是O（k*n）
+n是数组的长度
+
+分别在主函数之外，需要定义pop(), push(), front()
+第一个问题：为什么不能用list.pop()？而需要重新定义一个pop的这个内容？
+When using collections.deque, both append and pop operations are O(1)O(1). 
+The deque is implemented as a doubly linked list, which allows these operations to be performed in constant time.
+
+
+Class Myqueue:
+    def __init__(self):
+        self.queue = deque()  #deque need to be import from collections
+        #后续的操作中，都需要先判断这个queue是不是空的
+
+#每次弹出的时候，比较当前要弹出的数值是否等于队列出口元素的数值，如果相等则弹出。
+    def pop(self, value):
+        if self.queue and value == self.queue[0]: #队列出口
+            self.queue.popleft() #Remember why cannot use list.pop()
+
+#如果push的数值大于入口元素的数值，那么就将队列后端的数值弹出，直到push的数值小于等于队列入口元素的数值为止。
+    def push(self, value):
+        if self.queue and value > self.queue[-1]:队列后端
+            self.queue.pop()
+        self.queue.append(value)
+
+    def front(self):
+        return self.queue[0]
+
+
+下面是主函数的逻辑
+Class Solution:
+    def maxSlidingWindow(self, nums:List[int], k: int)-> List[int]:
+        que = Myqueue()
+        result = []
+    #先对前k个整数操作
+        for i in range(k):
+            que.push(nums[i])
+        result.append(que.front())
+    #再对k到len(nums)进行操作
+        for i in range(k, len(nums)):
+            que.pop(nums[i-k]) # 先pop队列左端的元素
+            que.push(nums[i])
+            result.append(que.front())
+        return result
+
+
+
+347.前 K 个高频元素
