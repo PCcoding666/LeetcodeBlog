@@ -7,8 +7,40 @@
 
 
  104.二叉树的最大深度 （优先掌握递归）
+       1
+     /   \
+    2     3
+   / \   / 
+  4   5 6   
+对于这个树结构，后序遍历和深度计算的过程如下：
 
-
+    从根节点1开始，调用getdepth(1)。
+    在getdepth(1)中，调用getdepth(2)。
+    在getdepth(2)中，调用getdepth(4)。
+    在getdepth(4)中，调用getdepth(None)两次，返回0。计算出节点4的深度为1。
+    回到getdepth(2)，调用getdepth(5)。
+    在getdepth(5)中，调用getdepth(None)两次，返回0。计算出节点5的深度为1。
+    回到getdepth(2)，计算出节点2的深度为1 + max(1, 1) = 2。
+    回到getdepth(1)，调用getdepth(3)。
+    在getdepth(3)中，调用getdepth(None)两次，返回0。计算出节点3的深度为1。
+    回到getdepth(1)，计算出节点1的深度为1 + max(2, 1) = 3。
+使用递归，需要理解这道题是后序遍历的左右中
 
 
  111.二叉树的最小深度 （优先掌握递归）
+
+这一道题需要注意的点在于，左右节点都是None才能算是叶节点
+      1
+     /
+    2
+   / \
+  4   3
+     / \
+    6   5
+这个最大深度不是1而是3
+另外，这道题还要注意递归结束之后，不能直接取最小值
+if node.left is None and node.right is not None: 
+        return 1 + rightheight
+右，中同理
+
+
