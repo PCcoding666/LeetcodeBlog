@@ -1,11 +1,37 @@
- 找树左下角的值  
+513.找树左下角的值  
+本题没有 中间节点的处理逻辑，只要左优先就行
+所以前中后序的遍历都可以
 
 
+如果想用层序遍历
+步骤如下：
+1. 创建一个队列，并且把根节点加入其中
+    from collection import deque
+    if root in None:
+        return 0
+    queue = deque([root])
+2. 层序遍历
+· 每次从队列中取出一个节点。
+    while queue:
+        size = len(queue)
+        for i in range(size):
+            node = queue.popleft()
+· 每层遍历的第一个节点就是这一层最左边的节点，记录这个节点的值。
+            if i == 0:
+                result = node.val
+· 把这个节点的子节点（左子节点和右子节点）按照顺序加入队列。
+            if node.left:
+                node.append(node.left)
+            if node.right:
+                node.append(node.right)
+
+ 
 
 
+3. 继续遍历直到队列为空。
 
 
- 路径总和  
+ 112. 路径总和  
 
 
 
