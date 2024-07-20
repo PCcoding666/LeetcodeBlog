@@ -32,12 +32,15 @@
 
 
  112. 路径总和  
-
-
-
-
-
-
-
+    def traversal(self, cur: TreeNode, count: int) -> bool:
+        if not cur:
+            return False
+        
+        count -= cur.val
+        
+        if not cur.left and not cur.right: # 遇到叶子节点
+            return count == 0
+        
+        return self.traversal(cur.left, count) or self.traversal(cur.right, count)
 
  从中序与后序遍历序列构造二叉树 
