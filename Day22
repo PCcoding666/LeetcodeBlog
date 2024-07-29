@@ -48,7 +48,7 @@ for i in range(startIndex, n - (k - len(path)) + 2):
     在第一次递归中，处理数字 2，对应字母 abc。将 a 入栈，调用 self.backtracking(digits, 1, ['a'])。
     在第二次递归中，处理数字 3，对应字母 def。将 d 入栈，调用 self.backtracking(digits, 2, ['a', 'd'])。
     因为 index 已等于 digits 的长度，当前路径 ['a', 'd'] 被组合成字符串 ad，并添加到结果中。
-    回溯：将 d 出栈，路径变为 ['a']。
+    回溯：将 d 出栈，路径变为 ['a']。 注意这里只pop一个。
     尝试下一个字母，将 e 入栈，调用 self.backtracking(digits, 2, ['a', 'e'])。
     类似地，将 ae 添加到结果中，并回溯。
     继续尝试其他可能的字母组合。
