@@ -6,10 +6,33 @@
 77. 组合  
 
 
+剪枝操作：
+为什么会出现剪枝操作？
+（1，2，3，4中取两个数）n = 4, k = 4的情况下，选取了数字1，就没有必要再去遍历数字2了。
+对于第二层，选取了数字2，就没有必要选取数字3了
+所以，可以剪枝的地方就在递归中每一层的for循环所选择的起始位置。
+实现剪枝操作，如果for循环选择的起始位置之后的元素个数 已经不足 我们需要的元素个数了，那么就没有必要搜索了。
+因此剪枝的本质是控制for循环的范围
+
+for i in range(startIndex, n - (k - len(path)) + 2):
+
 
 
  216.组合总和III 
-
-
+剪枝操作
+        if currentSum > n:  # 剪枝操作
+            return  # 如果path的长度等于k但currentSum不等于targetSum，则直接返回
+        for i in range(StartIndex, 10):
+            currentSum += i 
+            path.append(i)
+            self.backtracking(k, n, currentSum, result, i + 1, path)
+            currentSum -= i
+            path.pop()
+        return
 
  17.电话号码的字母组合 
+
+
+
+
+
