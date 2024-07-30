@@ -6,13 +6,23 @@
 
 
 47.全排列 II 
+终止条件
+if len(path) == len(nums)
 
+去重的条件：
+for i in range(len(nums)):
+    if (i > 0 and nums[i] == nums [i - 1] and used[i-1] = False) or used[i - 1] == True:
+看视频理解
 
 332.重新安排行程（可跳过） 
 
 
 51. N皇后（适当跳过）
-
+两个难点：
+1. 如何写isValid函数来判断一个期盼中的皇后是不是合法的
+2.                 chessboard[row] = chessboard[row][:col] + 'Q' + chessboard[row][col+1:]
+                self.backtracking(n, chessboard, row + 1, result)
+                chessboard[row] = chessboard[row][:col] + '.' + chessboard[row][col+1:]
 
 37.解数独（适当跳过）  
 
