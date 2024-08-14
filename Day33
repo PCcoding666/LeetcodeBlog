@@ -45,4 +45,9 @@ for i in range(1,m):
 
 #343. 整数拆分
 
-思考一下
+思考一下递推公式的逻辑把i拆成j
+为什么递推公式是
+dp[i] = max(dp[i], (i - j) * j, dp[i - j] * j)
+
+for i in range(3, len()+1):
+     for j in range(1, i//2 +1):
