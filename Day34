@@ -35,3 +35,28 @@ dp[i-1][j-weight[i]]  +  value[i]
 dp[i][j] = max(dp[i-1][j], dp[i-1][j-weight[i]]  +  value[i])
 
 初始化：
+
+for j in range(weight[0], bagweight+1):
+    dp[0][j] = value[0]
+
+
+
+01背包理论基础（滚动数组）
+复习一下上面的 递推公式
+dp[i][j] = max(dp[i-1][j], dp[i-1][j-weight[i] + value[i])
+====================
+**滚动数组的实质就是把上一层的数组拷贝下来
+1. 新的dp[j]: 容量为j的背包的最大价值为dp[j]
+
+2. 新的递推公式：
+dp[j] = max(dp[j], dp[j-weight[i] + value[i])
+
+3.  初始化
+dp[0] = 0 背包容量为0的时候，最大的价值为0
+
+4. 遍历顺序
+这里需要倒序遍历
+因为正序遍历会导致已经遍历过的内容发生冲突
+
+需要先遍历物品，再遍历背包
+
