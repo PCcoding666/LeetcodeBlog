@@ -3,7 +3,17 @@
 
 
  494. 目标和 
+left 表示的是正数的集合，right 表示的是负数的集合
 
+既然为target，那么就一定有 left组合 - right组合 = target。
+
+left + right = sum，而sum是固定的。right = sum - left
+
+公式来了， left - (sum - left) = target 推导出 left = (target + sum)/2 。
+
+target是固定的，sum是固定的，left就可以求出来。
+
+此时问题就是在集合nums中找出和为left的组合。
 
 
 
