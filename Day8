@@ -27,4 +27,25 @@ class Solution:
                 result.append(char)
         return ''.join(result)
 
+=============================
+额外的题目
+438.找到字符串中所有字母异位词
+示例 1:
 
+输入: s = "cbaebabacd", p = "abc"
+输出: [0,6]
+解释:
+起始索引等于 0 的子串是 "cba", 它是 "abc" 的异位词。
+起始索引等于 6 的子串是 "bac", 它是 "abc" 的异位词。
+
+
+这道题使用滑动窗口的时候应该保证在p中出现过的各个字幕的次数跟滑动窗口中的一致，然后输出滑动窗口的left 坐标即可
+
+这里应该使用的是
+from collections import defaultdict
+
+        p_count = defaultdict(int)  # 目标字符频率
+        s_count = defaultdict(int)  # 当前窗口字符频率
+
+
+保证滑动窗口的长度等于len(p)
