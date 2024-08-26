@@ -1,2 +1,2 @@
 # LeetcodeBlog
-This is my recording following 代码随想录
+This is my recording blog following 代码随想录
